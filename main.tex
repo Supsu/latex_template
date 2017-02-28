@@ -1,0 +1,128 @@
+\documentclass[a4paper, english, 12pt, twoside]{article}
+
+\makeatletter
+\let\l@FINNISH\l@finnish
+\makeatother
+
+\usepackage[T1]{fontenc}                    
+\usepackage[utf8x]{inputenc}               
+\usepackage[english]{babel}                 
+\usepackage{textcomp}
+\usepackage[left=34mm,right=34mm]{geometry} 
+\usepackage{pslatex}                        
+\usepackage{psfrag}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}                       
+\usepackage{amsmath}                       
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{tabularx}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{verbatim}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{layout}
+\usepackage{cite}
+\usepackage{wrapfig}                       
+\usepackage[tight]{subfigure}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage{mdwlist}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage[font=footnotesize]{caption}
+
+%for including python
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%EXAMPLE
+%\begin{lstlisting}
+%// Hello.java
+%import javax.swing.JApplet;
+%import java.awt.Graphics;
+%
+%public class Hello extends JApplet {
+%    public void paintComponent(Graphics g) {
+%        g.drawString("Hello, world!", 65, 95);
+%    }
+%}
+%\end{lstlisting}
+
+
+\newcommand{\pic}[4] {
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.7\textwidth,angle={#4},origin=c]{{#1}}
+\caption[{#2}]{{#2}} \label{#3}
+\end{center}
+\end{figure}
+}
+
+\pagestyle{fancy}
+\fancyhead{} 
+\renewcommand{\headrulewidth}{0pt} 
+\fancyfoot{} 
+\fancyfoot[C]{\footnotesize PAGEFOOTERTEXT HERE \\ \thepage} 
+\setlength\parindent{5ex} 
+\setlength{\parskip}{1em} 
+
+\begin{document}                        
+
+%-------------------------------------------------------------------
+
+
+\include{titlepage}                    
+
+\newpage
+\thispagestyle{plain}                           
+\pagenumbering{roman}                   
+\setcounter{secnumdepth}{-1}            
+\linespread{1}                        
+\selectfont                             
+\label{page:toc}                        
+\tableofcontents                        
+
+\newpage                               
+
+\setcounter{secnumdepth}{3}            
+\linespread{1.3}                       
+\selectfont                            
+
+\pagenumbering{arabic}                 
+\include{contents}                     
+
+
+
+\newpage                                            
+\setcounter{secnumdepth}{-1}                        
+\addcontentsline{toc}{section}{References}            
+\bibliography{ref.bib}                        
+\bibliographystyle{IEEEtran}                        
+
+
+\end{document}                              
